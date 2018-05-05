@@ -30,7 +30,7 @@ cov_matrix <- function(data, V, var1, var2 = FALSE, cor, type = c("sc", "ws")){
 #' @author Daniel Noble - daniel.noble@unsw.edu.au
 #' @export
 covMatrix <- function(data, es_var, cor){
-	 tmp <- expand.grid(sqrt(data[, es_var]), sqrt(data[, es_var]))
+	 tmp <- expand.grid(sqrt(data[, es_var]), sqrt(data[, es_var]), unique=FALSE)
 	 ## NEED TO CHANGE below. This won't work in all cases. We need 1 only in cases where we know for sure the row is the same. 
 	  tmp$cor <- ifelse(tmp$Var1 == tmp$Var2, 1, 0.5) 
 	 tmp$cov <- tmp$cor * tmp$Var1 * tmp$Var2
